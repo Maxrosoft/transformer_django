@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ md.title }}</title>
+  <link href="{% static "css/main.css" %}" rel="stylesheet">
+</head>
+<body>
+  <div id="content">
+    <h1>{{ md.title }}</h1>
+    {{ md.info|linebreaks }}
+    <h1></h1>
+    <a href="/posts">Our Posts</a><br><br>
+    <a href="/about_us">About Us</a>
+  </div>
+  <div id="img_container"><img src="{{ md.image_url }}"></div>
+</body>
+</html>
