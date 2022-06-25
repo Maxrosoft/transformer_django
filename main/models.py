@@ -46,6 +46,7 @@ class MainData(models.Model):
 class AboutUsData(models.Model):
     adds = models.CharField(max_length=250)
     contacts = models.CharField(max_length=250)
+    email = models.EmailField()
 
     objects = models.Manager()
     published = PublishedManager()

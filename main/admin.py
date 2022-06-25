@@ -20,5 +20,5 @@ class MainDataAdmin(admin.ModelAdmin):
 
 @admin.register(AboutUsData)
 class AboutUsDataAdmin(admin.ModelAdmin):
-    list_display = ('adds', 'contacts')
-    search_fields = ('adds', 'contacts')
+    list_display = ('adds', 'contacts', 'email')
+    search_fields = ('adds', 'contacts', 'email')
