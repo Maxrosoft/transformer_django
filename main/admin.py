@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, MainData, AboutUsData
+from .models import Post, MainData, AboutUsData, Comment
 
 
 @admin.register(Post)
@@ -22,3 +22,10 @@ class MainDataAdmin(admin.ModelAdmin):
 class AboutUsDataAdmin(admin.ModelAdmin):
     list_display = ('adds', 'contacts', 'email')
     search_fields = ('adds', 'contacts', 'email')
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'post', 'created', 'active')
+    list_filter = ('active', 'created', 'updated')
+    search_fields = ('name', 'email', 'body')

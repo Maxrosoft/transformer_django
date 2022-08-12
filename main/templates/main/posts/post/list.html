@@ -1,19 +1,31 @@
 {% extends "main/posts/base.html" %}
- 
+
 {% block title %}Our Posts{% endblock %}
- 
+
 {% block content %}
   <h1>Our Posts</h1>
+  {% if tag %}
+    <h2>Posts tagged  with "{{ tag.name }}"</h2>
+  {% endif %}
   {% for post in posts %}
     <h2>
       <a href="{{ post.get_absolute_url }}">
         {{ post.title }}
       </a>
+      <p class="tags">
+        Tags:
+        {% for tag in post.tags.all %}
+          <a href="{% url "main:post_list_by_tag" tag.slug %}">
+            {{ tag.name }}
+          </a>
+          {% if not forloop.last %}, {% endif %}
+        {% endfor %}
+      </p>
     </h2>
     <p class="date">
       Published {{ post.publish }}
     </p>
     {{ post.body|truncatewords:30|linebreaks }}
   {% endfor %}
-  {% include "pagination.html" with page=page_obj %}
+  {% include "pagination.html" with page=posts %}
 {% endblock %}
