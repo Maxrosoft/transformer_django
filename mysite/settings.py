@@ -26,8 +26,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Application definition
+SITE_ID = 1
 
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.BlogConfig',
     'taggit',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
