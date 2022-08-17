@@ -1,4 +1,5 @@
 {% extends "main/posts/base.html" %}
+{% load main_tags %}
  
 {% block title %}{{ post.title }}{% endblock %} 
  
@@ -7,7 +8,7 @@
   <p class="date"> 
     Published {{ post.publish }}
   </p> 
-  {{ post.body|linebreaks }}
+  {{ post.body|markdown }}
   {% for similar_post in similar_posts %}
     <a href="{{ similar_post.get_absolute_url }}">
       {{ similar_post }}
