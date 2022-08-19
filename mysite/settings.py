@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'taggit',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'accounts.apps.AccountsConfig',
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,3 +126,6 @@ EMAIL_PORT = 25
 EMAIL_HOST_USER = 'maxrosoft.dev@yahoo.com'
 DEFAULT_FROM_EMAIL = 'maxrosoft.dev@yahoo.com'
 EMAIL_HOST_PASSWORD = '54TmRL_bt65VnB8'
+
+LOGIN_REDIRECT_URL = '/posts'
+LOGOUT_REDIRECT_URL = '/posts'
